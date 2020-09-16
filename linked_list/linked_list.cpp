@@ -11,21 +11,35 @@ linked_list::linked_list(){}
 linked_list::~linked_list(){}
 
 void linked_list::append(int val){
+
+	node* new_node = new node(val);
+
+	// if list is empy make head the new node
     if(head == nullptr){
-        head = new node(val);
+		head = new_node;
     }
+	// find the last node
     else{
-        while(head->next != nullptr){
-            head = head->next;
+		node* temp = head;
+        while(temp->next != nullptr){
+            temp = temp->next;
         }
-        head->next = new node(val);
+		temp->next = new_node;
     }
 }
 
+void linked_list::prepend(int val) {
+	node* new_node = new node(val);
+	new_node->next = head;
+	head = new_node;
+}
+
 void linked_list::traverse_nodes(){
-    while (head->next != nullptr)
+	node* temp = head;
+    while (temp->next != nullptr)
     {
-        std::cout << "Node w/ val: " << head->data << std::endl;
-        head = head->next;
+        std::cout << "Node w/ val: " << temp->data << std::endl;
+        temp = temp->next;
     }
+	std::cout << "Node w/ val: " << temp->data << std::endl;
 }

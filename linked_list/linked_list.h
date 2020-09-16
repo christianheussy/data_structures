@@ -18,6 +18,7 @@ public:
     linked_list();
     ~linked_list();
     void append(int value);
+	void prepend(int value);
     void traverse_nodes();
 };
 

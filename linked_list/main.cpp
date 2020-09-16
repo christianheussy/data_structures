@@ -9,6 +9,8 @@ int main(){
     my_list.append(2);
     my_list.append(1);
     my_list.traverse_nodes();
+	my_list.prepend(7);
+	my_list.traverse_nodes();
     // head = new node();
     return 1;
 }
