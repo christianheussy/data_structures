@@ -12,7 +12,7 @@ linked_list::~linked_list(){}
 
 void linked_list::append(int val){
 
-	node* new_node = new node(val);
+	node* new_node = create_node(val);
 
 	// if list is empy make head the new node
     if(head == nullptr){
@@ -28,8 +28,32 @@ void linked_list::append(int val){
     }
 }
 
+node* linked_list::create_node(int val){
+    length++;
+    return new node(val);
+}
+
+void linked_list::insert_node(int pos, int val){
+
+    node* new_node = create_node(val);
+    node* temp = head;
+    if (pos == 0){
+        prepend(val);
+    }
+    else{
+        for (int i = 1; i < pos; i++)
+        {
+            temp = temp->next;
+        }
+        // break link and insert
+        node* next_node = temp->next;
+        new_node->next = next_node;
+        temp->next = new_node;
+    }
+}
+
 void linked_list::prepend(int val) {
-	node* new_node = new node(val);
+	node* new_node = create_node(val);
 	new_node->next = head;
 	head = new_node;
 }

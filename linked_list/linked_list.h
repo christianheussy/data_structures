@@ -20,6 +20,9 @@ public:
     void append(int value);
 	void prepend(int value);
     void traverse_nodes();
+    node* create_node(int value);
+    void insert_node(int position, int value);
+    int length = 0;
 };
 
 
