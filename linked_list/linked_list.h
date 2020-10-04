@@ -18,11 +18,8 @@ public:
     linked_list();
     ~linked_list();
     void append(int value);
-	void prepend(int value);
-    void traverse_nodes();
-    node* create_node(int value);
+    void print_list();
     void insert_node(int position, int value);
-    int length = 0;
 };
 
 

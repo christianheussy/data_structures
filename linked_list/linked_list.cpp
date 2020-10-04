@@ -11,14 +11,12 @@ linked_list::linked_list(){}
 linked_list::~linked_list(){}
 
 void linked_list::append(int val){
-
-	node* new_node = create_node(val);
-
-	// if list is empy make head the new node
+	node* new_node = new node(val);
+	// If list is empty make head the new node
     if(head == nullptr){
 		head = new_node;
     }
-	// find the last node
+	// Find the last node
     else{
 		node* temp = head;
         while(temp->next != nullptr){
@@ -28,42 +26,16 @@ void linked_list::append(int val){
     }
 }
 
-node* linked_list::create_node(int val){
-    length++;
-    return new node(val);
-}
-
-void linked_list::insert_node(int pos, int val){
-
-    node* new_node = create_node(val);
-    node* temp = head;
-    if (pos == 0){
-        prepend(val);
-    }
-    else{
-        for (int i = 1; i < pos; i++)
-        {
-            temp = temp->next;
-        }
-        // break link and insert
-        node* next_node = temp->next;
-        new_node->next = next_node;
-        temp->next = new_node;
-    }
-}
-
-void linked_list::prepend(int val) {
-	node* new_node = create_node(val);
-	new_node->next = head;
-	head = new_node;
-}
-
-void linked_list::traverse_nodes(){
+void linked_list::print_list(){
+    // Traverse the list and print the value of each node
 	node* temp = head;
-    while (temp->next != nullptr)
-    {
+    while (temp->next != nullptr){
         std::cout << "Node w/ val: " << temp->data << std::endl;
         temp = temp->next;
     }
 	std::cout << "Node w/ val: " << temp->data << std::endl;
+}
+
+void linked_list::insert_node(int pos, int val){
+    // Implement the insert node method
 }
