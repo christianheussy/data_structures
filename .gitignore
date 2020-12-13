@@ -12,3 +12,6 @@
 /linked_list/linked_list.vcxproj
 /linked_list/linked_list.sln
 /linked_list/linked_list.obj
+
+.vscode
+*dSYM*
