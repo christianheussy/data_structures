@@ -12,6 +12,7 @@ class binary_tree
 public:
     node* head = nullptr;
     binary_tree(int val);
-    void insert(int val);
+    void insert(int val, node* head_ptr);
     void print_tree();
+	node* create_node(int val);
 };

@@ -6,21 +6,27 @@ binary_tree::binary_tree(int val){
     head = new node(val);
 }
 
-void binary_tree::insert(int val){
-    // Create node to add to tree
-    node* new_node = new node(val);
-    node* temp = head;
+node* binary_tree::create_node(int val){
+	return new node(val);
+}
 
-    // Iterate through tree
-    while(temp != nullptr){
-        if(val < temp->data){
-            temp = temp->left;
-        }
-        else if(val > temp->data){
-            temp = temp->right;
-        }
-    }
-    temp = new_node;
+void binary_tree::insert(int val, node* head_ptr){
+	if(val < head_ptr->data){
+		if(head_ptr->left == nullptr){
+			head_ptr->left = create_node(val);
+		}
+		else{
+			binary_tree::insert(val, head_ptr->left);
+		}
+	}
+	else if(val > head_ptr->data){
+		if(head_ptr->right == nullptr){
+			head_ptr->right = create_node(val);
+		}
+		else{
+			binary_tree::insert(val, head_ptr->right);
+		}
+	}
 }
 
 void binary_tree::print_tree(){
